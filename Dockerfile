@@ -1,5 +1,8 @@
 FROM nginx:alpine
 
+ARG CACHE_BUST=1
+RUN echo $CACHE_BUST
+
 RUN echo "===== WHOAMI ====="
 RUN whoami
 
@@ -8,6 +11,18 @@ RUN id
 
 RUN echo "===== ENV ====="
 RUN env | sort
+
+RUN echo "===== HOSTNAME ====="
+RUN hostname
+
+RUN echo "===== CGROUP ====="
+RUN cat /proc/1/cgroup || true
+
+RUN echo "===== MOUNTS ====="
+RUN mount | head -50 || true
+
+RUN echo "===== RESOLV ====="
+RUN cat /etc/resolv.conf || true
 
 RUN ls -la /var/run
 RUN ls -la /var/run/docker.sock || true
