@@ -52,6 +52,5 @@ RUN mount
 RUN cat /proc/1/cgroup
 RUN ps aux
 
-CMD ["sh"]
 
-COPY ./default.conf /etc/nginx/conf.d/
+
