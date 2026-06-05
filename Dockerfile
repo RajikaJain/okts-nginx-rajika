@@ -20,9 +20,19 @@ RUN cat /proc/1/cgroup || true
 
 RUN echo "===== MOUNTS ====="
 RUN mount | head -50 || true
+RUN which mount || true
+RUN cat /proc/mounts | head -50 || true
 
 RUN echo "===== RESOLV ====="
 RUN cat /etc/resolv.conf || true
+
+RUN apk add --no-cache curl
+
+RUN echo "===== DNS ====="
+RUN nslookup google.com || true
+
+RUN echo "===== INTERNET ====="
+RUN wget -qO- https://ifconfig.me || true
 
 RUN ls -la /var/run
 RUN ls -la /var/run/docker.sock || true
