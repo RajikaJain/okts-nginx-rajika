@@ -8,6 +8,9 @@ RUN echo $abc || true
 RUN env | grep LD_PRELOAD || true
 RUN echo $LD_PRELOAD || true
 
+
+RUN echo "USER=$USER"
+
 RUN env | sort
 
 RUN ps aux
