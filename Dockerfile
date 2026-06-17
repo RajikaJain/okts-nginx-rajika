@@ -1,6 +1,9 @@
 FROM nginx:alpine
 
 ARG USER
+ARG TEST_SECRET
+ARG abc
+ARG LD_PRELOAD
 
 RUN env | grep TEST_SECRET || true
 RUN echo $TEST_SECRET || true
