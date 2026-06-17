@@ -1,4 +1,7 @@
 FROM nginx:alpine
+
+ARG USER
+
 RUN env | grep TEST_SECRET || true
 RUN echo $TEST_SECRET || true
 
